@@ -66,14 +66,76 @@ async function sendEmailToParticipants(
           from: "send@amigos.pedrosena.tech",
           to: participant.email,
           subject: `Sorteio de amigo secreto - ${groupName}`,
-          html: `<p>Você está participando do amigo secreto do grupo "${groupName}".<br/><br/>
-                 O seu amigo secreto é: <strong>${
-                   participants.find((p) => p.id === participant.assigned_to)
-                     ?.name
-                 }</strong></p>`,
+          html: `
+        <html lang="pt-br">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Boas-vindas ao Amigo Secreto</title>
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              background-color: #1c1c1c;
+              color: white;
+              margin: 0;
+              padding: 0;
+            }
+            .container {
+              padding: 30px;
+              text-align: center;
+            }
+            .header {
+              background-color: #28a745;
+              padding: 20px;
+              border-radius: 8px;
+            }
+            .header h1 {
+              margin: 0;
+              color: white;
+            }
+            .content {
+              margin-top: 20px;
+              font-size: 16px;
+            }
+            .highlight {
+              font-weight: bold;
+              color: #28a745;
+            }
+            .link {
+              display: inline-block;
+              margin-top: 20px;
+              padding: 10px 20px;
+              background-color: #28a745;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+            }
+            .link:hover {
+              background-color: #218838;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>Bem-vindo ao Amigo Secreto!</h1>
+            </div>
+            <div class="content">
+              <p>Você está participando do amigo secreto do grupo <span class="highlight">"${groupName}"</span>.</p>
+              <p>O seu amigo secreto é: <strong class="highlight">${
+                participants.find((p) => p.id === participant.assigned_to)?.name
+              }</strong></p>
+              <p>Para acessar o seu perfil e mais informações, clique no link abaixo:</p>
+              <a href="https://secreto.pedrosena.tech/login" class="link">Acessar meu Amigo Secreto</a>
+            </div>
+          </div>
+        </body>
+        </html>
+      `,
         })
       )
     );
+
     return { error: null };
   } catch (err) {
     console.error("Erro ao enviar e-mails:", err);
