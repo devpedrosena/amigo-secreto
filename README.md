@@ -80,7 +80,7 @@ O app utiliza componentes do shadcn/ui estilizados com Tailwind CSS. Principais 
 
 ## 📱 Veja em ação
 
-![Preview do Projeto](https://drive.google.com/file/d/1Dt_xiU6GQnlX6BQDoP1uySzzJ5ymomlM/view)
+![Preview do Projeto](https://drive.google.com/file/d/1Dt_xiU6GQnlX6BQDoP1uySzzJ5ymomlM/preview)
 
 ## 🤝 Contribuindo
 
